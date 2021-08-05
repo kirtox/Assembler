@@ -1,0 +1,34 @@
+程式碼：
+<constructor>:
+assembler()					//(default constructor)不作任何動作
+assembler(String fileName) 	//fileNmae為sourceCode的檔案名稱
+<methods>:
+String[][] loadOPTAB (String file)		//從檔案中讀入OPTAB
+String[][] loadFromFile (String file)	//從檔案中讀入sourceCode
+void save (String file)					//將sourceCode存至檔案
+String toBeautyFormat (String s ,int bit)	//傳入字串和位數,不滿的位數補" "(空白)
+int countRow (String file)			//輸入檔案,回傳所需的rows數目
+String[][] modifyForm (String[][] source)  //修改sourceCode為組譯時適合的格式
+boolean isOpcode (String token)			//判斷token是否為Opcode
+int isOpcode2(String token)			//回傳token的format,不是則回傳-1
+void pass1 ()							//PASS1
+int addLitLines (int index)	  //處理LTORG:插入literal Pool中literal
+int countByte (String token)				//回傳literal佔幾個BYTE
+boolean hasSymbol (String sym)			//判斷sym是否已存在SYMTAB中
+void insertToSYMTAB(String sym,int loc)	//插入sym,loc到SYMTAB中
+boolean newLiteral (String sym)			//判斷是否為新的literal
+void insertToLitPool(String sym)		//插入sym到LitPool中
+String litValue(String sym)				//回傳literal的value
+int calculateExp(String exp)			//計算EQU的運算式
+boolean findInSYMTAB(String s)			//看s有沒有存在SYMTAB中
+valueOf(String t)						//回傳symbol的location
+String to4Xbits(String s,int bit)	//傳入字串和位數,不滿的位數補0
+void pass2()							//PASS2
+String format3(String mnem ,String para ,String srcAddrInHex)                        //處理PASS2中format3的情形
+String format4(String mnem ,String para ) //處理PASS2中format4的情形
+int getLocInSourceCode(String para)		
+int addrInSYMTAB(String para)			//回傳para的location
+String numOfRegister (String m)			//回傳register的代號
+int getFormat(String mnem)				//get symbol的format
+int getOpcode(String mnem)				//get symbol的Opcode
+String getLitValue(String lit)			//回傳literal的value
